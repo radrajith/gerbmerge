@@ -1,7 +1,7 @@
 # Gerbmerge
 A detailed explanation of how I used gerbmerge to combine multiple eagle boards for [fusionpcb](https://www.seeedstudio.com/fusion_pcb.html) manufacturing.
 
-Softare used: [Eagle](https://cadsoft.io/) - compatible CAM file format(s) 
+Softare used: [Eagle7.6](https://cadsoft.io/) - compatible CAM file format(s) 
 * Gerber_RS274X  
 * Excellion for drill holes
 
@@ -61,15 +61,15 @@ To avoid problems with python not being able to find directory, all the files wi
 
 * Check if all these files are each folder inside the folder - **.BOR,.GBL,.GBO,.GBP,.GBS,.GML,.GTL,.GTO,.GTP,.GTS,.TXT** (11)
 ![cam files](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/camfiles.png?raw=true)
-*Failure to do so will result in an error.
+*Failure to do so will result in an error.*
 
 ##Creating configuration file
 Download the configuration file from [here](https://github.com/radrajith/gerbmerge/blob/master/file.cfg)
 
-open the configuration file (file.cfg) in any text editor, i used notepad++. 
+Then open the configuration file (file.cfg) in any text editor, I used [notepad++](https://notepad-plus-plus.org/download/v7.1.html). 
 
-###Carefully follow the instructions below and modify the **file.cfg** file. **And remember the '#' symbol is used to indicate comments in the code.** 
-*Look for these lines* 
+###Carefully follow the instructions below and modify the ```**file.cfg**``` . **Note the '#' symbol is used to indicate comments in the code.** 
+* Look for these lines* 
 ```
 # Change projdir to wherever your project files are, for example:
 #
@@ -87,13 +87,14 @@ projdir = project_files
 # For convenience, this is the base name of the merged output files.
 MergeOut = merge
 ```
-*If you named your folder something else other than 'project_files', change it to the appropriate name.
-*The output file after running the gerbmerge will output the files with the name merge, feel free to change that to whatever name you want. 
+*If you named your folder something else other than 'project_files', change it to the appropriate name.*
 
-*If you want to change the spacing between the each baords, modify this x and y spacing
+The output file(s) after running gerbmerge will all be named merge(.extension), feel free to rename it to whatever you want. 
+
+* If you want to change the spacing between the each boards, modify this x and y spacing
 ![xyspacing](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/xyspacing.PNG?raw=true)
 
-*Scroll down all the way to bottom, and then copy the below code for as many files you want to combine. In my case I had 10 different gerber files to merge, so i copy pasted the below code 10 times. 
+* Next, scroll down all the way to bottom, and then copy the code below for as many boards you want to combine. (In my case I had 10 different gerber files to merge, so I copy pasted the below code 10 times.) 
 ```[raj]
 
 # You can set any options you like to make generating filenames easier, like
@@ -136,16 +137,13 @@ Repeat = 1
 
 ################################################################
 ```
-*change the name from 'raj' to whatever name you have for the folder. 
-![name](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/name.PNG?raw=true)
-
-*change the name of the gerber file name from 'Final Project Designs_v1' to whatever name you have for the gerber file. 
+* Correct the line, ```Prefix=%(projdir)s/raj/Final Project Designs_v1```  from "/raj/Final Project Designs_v1" to whatever folder is being used.
 ![foldername](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/foldername.PNG?raw=true)
 
-once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located)
+* Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located)
 
 #Running the Gerbmerge program. 
-go to the python2.7 folder if you are not already there. Open up the command window from within the folder. 
+Go to the python2.7 folder if you are not already there. Open up the command window from within the folder. 
 ![openning command line](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
 
 after openning the command prompt, type in 'gerbmerge file.cfg' and press enter
