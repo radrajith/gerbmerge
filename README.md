@@ -1,7 +1,7 @@
 # Gerbmerge
 A detailed explanation of how I used gerbmerge to combine multiple eagle boards for [fusionpcb](https://www.seeedstudio.com/fusion_pcb.html) manufacturing.
 
-Softare used: [Eagle](https://cadsoft.io/) - CAM files format 
+Softare used: [Eagle](https://cadsoft.io/) - compatible CAM file format(s) 
 * Gerber_RS274X  
 * Excellion for drill holes
 
@@ -10,10 +10,12 @@ I used gerbmerge as a way to bring down the cost of ordering pcb for a group of 
 *The gerbmerge code is written by ruggedcircuits.com. I am creating this to give a detailed tutorial on how to use it, and not go through the same process of looking all over internet.*
 
 #What is Gerbmerge?
-Gerbmerge is a software written in python that will combine multiple gerber files into one super board using optimization algorithms.
+Gerbmerge is software written in python that will combine multiple gerber files into one super board. Gerbmerge offers both manual and automatic (optimization algorithms) as means of board placement.
+
+For this project, the automatic operation was used.
 
 #Why Gerbmerge?
-Since eagle cad design software has a limitation of 10cmx10cm board layout, multiple board cannot be combined together without upgrading to a paid version. To get around this limitation, We can combine the gerber files generated from the eagle and combine them rather than combining the board files. By combining the gerber files, we also avoid the hectic task of renaming all the components to have different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).
+Because eagle cad design software has a limitation of 100x80mm routing area (express) or 160x100mm routing area(edu) , multiple boards cannot be combined together without requiring to upgrade a paid version. To work around this limitation, we can combine the gerber files generated from the eagle instead. By combining the gerber files, we also avoid the problems caused by the panelizing script which redefines all the components to different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).
 
 # Downloading Python
 Since gerbmerge is written in pythong, If you dont have python already installed, download it. At the time of this tutorial I was using python version 2.7
@@ -168,7 +170,24 @@ Since I am using seeedstudio's fusionpcb printing service, i will have to modify
 Now there will be file called merge2_corrected.txt file. 
 ![merge2corrected](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/mergecorrect.png?raw=true)
 
+*delete the merge2.TXT file
+*rename the merge2_corrected.TXT file to merge2.TXT
+*rename the merge2.fab to merge2.GML
 
+All the files are now ready.
+
+#uploading to fusionpcb
+copy .GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT files in a folder and create a zip file of it. 
+
+open your browser and go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead) search for fusionpcb services and upload this zip file. click gerber view and now you should be able to see all you layer of the superboard(all gerber files merged).
+
+
+#Errors
+The error when combining multiples files was caused beacause more than 26 different drill hole sizes was required. 
+"RuntimeError: only 26 different tool sizes supported for fabrication drawing"  
+![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drill%20error.png?raw=true)
+
+This problem can be fixed by rounding up the least used drill sizes. open the merge2.txt file and look look through to find which drills were least used and try to fix them on the board and rerun the whole process. --frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view)  Sometimes it may be hard to fix where the drill holes are, this can be accomplished by isolating the least used drills in the merge2.txt file and viewing the gerber view.
 
 
 
