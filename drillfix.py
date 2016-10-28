@@ -1,5 +1,9 @@
 #enter file name
-file = open('merge2.TXT', 'r+') #open merge2.txt file as a read write option
+import os
+
+dir = os.getcwd()
+print(dir)
+file = open(dir+'\merge2.TXT', 'r+') #open merge2.txt file as a read write option
 output = open('merge2_corrected.TXT','a')
 list = []
 i=0
@@ -29,3 +33,4 @@ for line in file:
                 output.write(line)
 file.close()
 output.close()
+print('correct file created in '+dir)
