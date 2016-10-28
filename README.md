@@ -176,17 +176,19 @@ Now there will be file called merge2_corrected.txt file.
 All the files are now ready.
 
 #Uploading to fusionpcb
-copy .GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT files in a folder and create a zip file of it. 
+Copy ```.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT``` (8) files in a folder and create a zip file of it. 
 
-Open your browser and go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead) search for fusionpcb services and upload this zip file. Click gerber view and now you should be able to see all you layer of the superboard(all gerber files merged).
+Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).
 
 
 #Errors
-The error when combining multiples files was caused beacause more than 26 different drill hole sizes was required. 
-"RuntimeError: only 26 different tool sizes supported for fabrication drawing"  
-![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drill%20error.png?raw=true)
+##RuntimeError: only 26 different tool sizes supported for fabrication drawing
+This error occurs when the combined files resulted in than 26 distinct drill hole sizes. (26 is number set by config/manufacturer) 
+![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%2520pics/error1drill.PNG?raw=true)
 
-This problem can be fixed by rounding up the least used drill sizes. open the merge2.txt file and look look through to find which drills were least used and try to fix them on the board and rerun the whole process. --frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view)  Sometimes it may be hard to fix where the drill holes are, this can be accomplished by isolating the least used drills in the merge2.txt file and viewing the gerber view.
+For a better understanding 
+
+This problem can be fixed by rounding up the least used drill sizes. First, open the merge2.txt file and look look through to find which drills were least used and try to fix them on the board and rerun the whole process. --frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view)  Sometimes it may be hard to fix where the drill holes are, this can be accomplished by isolating the least used drills in the merge2.txt file and viewing the gerber view.
 
 
 
