@@ -26,11 +26,11 @@ The instruction on unwireddevices github page are pretty good, follow  that to i
 once the file is downloaded unzip it. 
 
 go to where the file was unzipped, in this case the downloads folder. Go to the address bar and type 'cmd' (without quotes).
-![openning command prompt](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/openning%20command%20line.PNG?raw=true)
+![openning command prompt](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
 The command line window will open up. 
 
 Type 'python setup.py install', this command will install gerbmerge software on your computer. 
-
+						
 ![installing gerbmerge](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/install.PNG?raw=true)
 
 you can confirm weather gerbmerge has installed by going to the python2.7>Lib>site-packages and now you should see gerbmerge folder. 
