@@ -69,7 +69,7 @@ Download the configuration file from [here](https://github.com/radrajith/gerbmer
 Then open the configuration file (file.cfg) in any text editor, I used [notepad++](https://notepad-plus-plus.org/download/v7.1.html). 
 
 ###Carefully follow the instructions below and modify the ```**file.cfg**``` . **Note the '#' symbol is used to indicate comments in the code.** 
-* Look for these lines* 
+*Look for these lines* 
 ```
 # Change projdir to wherever your project files are, for example:
 #
@@ -91,11 +91,12 @@ MergeOut = merge
 
 The output file(s) after running gerbmerge will all be named merge(.extension), feel free to rename it to whatever you want. 
 
-* If you want to change the spacing between the each boards, modify this x and y spacing
+If you want to change the spacing between the each boards, modify this x and y spacing
 ![xyspacing](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/xyspacing.PNG?raw=true)
 
-* Next, scroll down all the way to bottom, and then copy the code below for as many boards you want to combine. (In my case I had 10 different gerber files to merge, so I copy pasted the below code 10 times.) 
-```[raj]
+Next, scroll down all the way to bottom, and then copy the code below for as many boards you want to combine. (In my case I had 10 different gerber files to merge, so I copy pasted the below code 10 times.) 
+```
+[raj]
 
 # You can set any options you like to make generating filenames easier, like
 # Prefix. This is just a helper option, not a reserved name. Note, however,
@@ -137,31 +138,31 @@ Repeat = 1
 
 ################################################################
 ```
-* Correct the line, ```Prefix=%(projdir)s/raj/Final Project Designs_v1```  from "/raj/Final Project Designs_v1" to whatever folder is being used.
+* Correct the lines, ```[raj]``` and ```Prefix=%(projdir)s/raj/Final Project Designs_v1``` to correspond whatever folder/names are being used. See:
 ![foldername](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/foldername.PNG?raw=true)
 
-* Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located)
+Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located).
 
 #Running the Gerbmerge program. 
-Go to the python2.7 folder if you are not already there. Open up the command window from within the folder. 
+Go to the python2.7 folder if you are not already there. Once again open up the command window from within the folder by going to the address bar and typing ```cmd```. 
 ![openning command line](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
 
-after openning the command prompt, type in 'gerbmerge file.cfg' and press enter
+After openning the command prompt, type in ```gerbmerge file.cfg``` and press enter.
 ![gerbmerge run](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20cmd%20command.png?raw=true)
 
-the following lines will be displayed, type 'y' and press enter.
+The following lines will be displayed, type ```y``` and press enter.
 ![cmd 1](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%202.png?raw=true)
 ![cmd 2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%203.png?raw=true)
-the program will run forever trying to find the best placement to minimized the space required. I usually let it run for 20-30s before pressing ctrl-c to stop the process and output the files. 
+The program will then run forever trying to find the best placement to minimized the space required. I usually let it run for 20-30s before pressing ctrl-c to stop the process and output the files. 
 ![cmd 3](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%204.png?raw=true)
 ![cmd 4](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%205.png?raw=true)
-now you should see the all the files with merge2.XXX generated on the python2.7 folder. 
+Now you should see the all the files with merge2.(extension) generated in the python2.7 folder. 
 ![mergefiles](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/mergedFiles.png?raw=true)
 
-Since I am using seeedstudio's fusionpcb printing service, i will have to modify the drill file to meet their specification. The drill file output and the .fab file output do not meet their requirements, for this reason the program 'drillfix.py' program was written. This program will be used to automatically correct the drill file to meet the specifications.
+Since I am using seeedstudio's fusionpcb manufacturing service, I will now have to modify the drill file to meet their specification(s). The drill file output and the .fab file output do not meet their requirements, for this reason the program ```drillfix.py``` program was written/used. This program will be used to automatically correct the drill file to meet the specifications.
 
 #How to use drillfix.py 
-*Download the drillfix.py from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). save it to the python2.7 folder.
+* Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). save it to the python2.7 folder.
 *Open command prompt on this folder and type in 'python drillfix.py' and press enter.
 ![drillfix](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfix.png?raw=true)
 
