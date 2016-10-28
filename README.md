@@ -36,7 +36,7 @@ Type 'python setup.py install', this command will install gerbmerge software on 
 you can confirm weather gerbmerge has installed by going to the python2.7>Lib>site-packages and now you should see gerbmerge folder. 
 
 ![gerbmerge folder 1](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/gerbmerge_folder_1.png?raw=true)
-![gerbmerge folder 2](https://github.com/radrajith/germerge/blob/master/tutorial%20pics/gerbmerge_folder_2.png?raw=true)
+![gerbmerge folder 2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/germerge_folder_2.png?raw=true)
 
 #Combining gerber files 
 
