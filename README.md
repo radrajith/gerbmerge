@@ -166,7 +166,7 @@ Since I am using seeedstudio's fusionpcb printing service, i will have to modify
 ![drillfix](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfix.png?raw=true)
 
 Now there will be file called merge2_corrected.txt file. 
-![merge2corrected](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/mergecorrect.png?raw=true
+![merge2corrected](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/mergecorrect.png?raw=true)
 
 
 
