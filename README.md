@@ -163,22 +163,22 @@ Since I am using seeedstudio's fusionpcb manufacturing service, I will now have 
 
 #How to use drillfix.py 
 * Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). save it to the python2.7 folder.
-*Open command prompt on this folder and type in 'python drillfix.py' and press enter.
+* Open command prompt on this folder and type in ``python drillfix.py`` and press enter.
 ![drillfix](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfix.png?raw=true)
 
 Now there will be file called merge2_corrected.txt file. 
 ![merge2corrected](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/mergecorrect.png?raw=true)
 
-*delete the merge2.TXT file
-*rename the merge2_corrected.TXT file to merge2.TXT
-*rename the merge2.fab to merge2.GML
+* delete the merge2.TXT file
+* rename the merge2_corrected.TXT file to merge2.TXT
+* rename the merge2.fab to merge2.GML
 
 All the files are now ready.
 
-#uploading to fusionpcb
+#Uploading to fusionpcb
 copy .GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT files in a folder and create a zip file of it. 
 
-open your browser and go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead) search for fusionpcb services and upload this zip file. click gerber view and now you should be able to see all you layer of the superboard(all gerber files merged).
+Open your browser and go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead) search for fusionpcb services and upload this zip file. Click gerber view and now you should be able to see all you layer of the superboard(all gerber files merged).
 
 
 #Errors
