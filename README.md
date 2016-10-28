@@ -36,7 +36,7 @@ Type 'python setup.py install', this command will install gerbmerge software on 
 you can confirm weather gerbmerge has installed by going to the python2.7>Lib>site-packages and now you should see gerbmerge folder. 
 
 ![gerbmerge folder 1](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/gerbmerge_folder_1.png?raw=true)
-![gerbmerge folder 2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/gerbmerge_folder_2.png?raw=true)
+![gerbmerge folder 2](https://github.com/radrajith/germerge/blob/master/tutorial%20pics/gerbmerge_folder_2.png?raw=true)
 
 #Combining gerber files 
 
@@ -133,4 +133,18 @@ Repeat = 1
 once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located)
 
 #Running the Gerbmerge program. 
+go to the python2.7 folder if you are not already there. Open up the command window from within the folder. 
+[openning command line](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
+
+after openning the command prompt, type in 'gerbmerge file.cfg' and press enter
+[gerbmerge run](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20cmd%20command.png?raw=true)
+
+the following lines will be displayed, type 'y' and press enter.
+[cmd 1](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%202.png?raw=true)
+[cmd 2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%203.png?raw=true)
+the program will run forever trying to find the best placement to minimized the space required. I usually let it run for 20-30s before pressing ctrl-c to stop the process and output the files. 
+[cmd 3](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%204.png?raw=true)
+[cmd 4](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/entering%20command%205.png?raw=true)
+
+
 
