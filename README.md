@@ -255,7 +255,13 @@ Drill sizes T16(2 drills) and T17(2 drills) are not used as much relative to T18
 
 Locate them through Eagle's board-view to resize to next biggest size listed in drill file /```merge2.txt```. Fix them on the board and rerun the whole process. If you have trouble locating the drill/through holes/vias, make a copy of the drill file isolating the least used drills. Then load that copy onto a gerber viewer to visually see which drill holes/vias needs fixing.
 
+##ImportError: No module named simpleparse.parser
+>SimpleParse is a BSD-licensed Python package providing a simple and fast parser generator using a modified version of the mxTextTools >text-tagging engine.
 
+[SimpleParse download link](http://simpleparse.sourceforge.net/)
+
+##SyntaxError: Missing parentheses in call to 'print'
+Are you using python 3 and up? Try again with python 2.7
 
 --frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view).
 
