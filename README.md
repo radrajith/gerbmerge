@@ -5,7 +5,9 @@ Softare compatiblity:
 * [Eagle7.6](https://cadsoft.io/) - CAM file format(s) 
 	* Gerber_RS274X  
 	* Excellion for drill holes
-* [Python]()(Python 2.4 or higher)
+* [Python](https://www.python.org/downloads/)
+	* Python 2.4 or higher
+	* **Not Python 3, it is incompatible with gerbmerge
 
 I used gerbmerge as a way to bring down the cost of ordering pcb for a group of friends while taking ESE 323 - Modern prototying and PCB design class at Stony Brook University. 
 
