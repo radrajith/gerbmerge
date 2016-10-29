@@ -24,7 +24,7 @@ Since gerbmerge is written in python, If you don't have python already installed
 #Downloading and Installing Gerbmerge
 After installing python, go ahead and download gerbmerge file [zip file link](https://github.com/radrajith/gerbmerge/blob/master/gerbmerge-master.zip)
 
-or if you directly want to get it from the source I forked it from [click here](https://github.com/unwireddevices/gerbmerge).
+Or if you directly want to get it from the source I forked it from [click here](https://github.com/unwireddevices/gerbmerge).
 
 ![github download](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/github%20source%20download.PNG?raw=true)
 
@@ -44,12 +44,12 @@ You can check if gerbmerge was installed correctly by going to "python2.7>Lib>si
 
 ![gerbmerge folder 2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/germerge_folder_2.png?raw=true)
 
-#Combining gerber files 
+#Combining Gerber Files 
 
 If you have not created the gerber files already, [refer here](https://radrajith.github.io/ESE_323_PCB_Design/) for the instructions to obtain the gerber files from eagle. 
 **Confirm that the drills file extensions are saved as .txt not .drd**
 
-##Creating directory for files to be combined
+##Creating Directory for Files to be Combined
 To avoid problems with python not being able to find directory, all the files will be placed in the python2.7 directory. Follow the steps below
  
 * Create a new directory called ```project_files```
@@ -63,7 +63,7 @@ To avoid problems with python not being able to find directory, all the files wi
 ![cam files](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/camfiles.png?raw=true)
 *Failure to do so will result in an error.*
 
-##Creating configuration file
+##Creating Configuration File
 Download the configuration file from [here](https://github.com/radrajith/gerbmerge/blob/master/file.cfg)
 
 Then open the configuration file (file.cfg) in any text editor, I used [notepad++](https://notepad-plus-plus.org/download/v7.1.html). 
@@ -143,7 +143,7 @@ Repeat = 1
 
 Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located).
 
-#Running the Gerbmerge program. 
+#Running the Gerbmerge Program. 
 Go to the python2.7 folder if you are not already there. Once again open up the command window from within the folder by going to the address bar and typing ```cmd```. 
 ![openning command line](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
 
@@ -161,7 +161,7 @@ Now you should see the all the files with merge2.(extension) generated in the py
 
 Since I am using seeedstudio's fusionpcb manufacturing service, I will now have to modify the drill file to meet their specification(s). The drill file output and the .fab file output do not meet their requirements, for this reason the program ```drillfix.py``` program was written/used. This program will be used to automatically correct the drill file to meet the specifications.
 
-#How to use drillfix.py 
+#How to Use Drillfix.py 
 * Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). save it to the python2.7 folder.
 * Open command prompt on this folder and type in ``python drillfix.py`` and press enter.
 ![drillfix](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfix.png?raw=true)
@@ -175,7 +175,7 @@ Now there will be file called merge2_corrected.txt file.
 
 All the files are now ready.
 
-#Uploading to fusionpcb
+#Uploading to Fusionpcb
 Copy ```.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT``` (8) files in a folder and create a zip file of it. 
 
 Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).
