@@ -1,13 +1,16 @@
 # Gerbmerge
 A detailed explanation of how I used gerbmerge to combine multiple eagle boards for [fusionpcb](https://www.seeedstudio.com/fusion_pcb.html) manufacturing.
 
-Softare compatiblity: 
+Softare Notes: 
 * [Eagle7.6](https://cadsoft.io/) - CAM file format(s) 
 	* Gerber_RS274X  
 	* Excellion for drill holes
 * [Python](https://www.python.org/downloads/)
 	* Python 2.4 or higher
 	* **Not Python 3, it is incompatible with gerbmerge**
+* [SimpleParse](http://simpleparse.sourceforge.net/)
+	* version 2.1.0 or later	
+	
 
 I used gerbmerge as a way to bring down the cost of ordering pcb for a group of friends while taking ESE 323 - Modern prototying and PCB design class at Stony Brook University. 
 
@@ -21,9 +24,13 @@ For this project, the automatic operation was used.
 #Why Gerbmerge?
 Because eagle cad design software has a limitation of 100x80mm routing area (express) or 160x100mm routing area(edu) , multiple boards cannot be combined together without requiring to upgrade a paid version. To work around this limitation, we can combine the gerber files generated from the eagle instead. By combining the gerber files, we also avoid the problems caused by the panelizing script which redefines all the components to different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).
 
-# Downloading Python
+# Downloading Python And Simpleparse
 Since gerbmerge is written in python, If you don't have python already installed, download it. At the time of this tutorial I was using python version 2.7
 [python download link](https://www.python.org/downloads/)
+
+>SimpleParse is a BSD-licensed Python package providing a simple and fast parser generator using a modified version of the mxTextTools >text-tagging engine.
+
+[SimpleParse download link](http://simpleparse.sourceforge.net/)
 
 #Downloading and Installing Gerbmerge
 After installing python, go ahead and download gerbmerge file [zip file link](https://github.com/radrajith/gerbmerge/blob/master/gerbmerge-master.zip)
