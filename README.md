@@ -7,7 +7,7 @@ Softare compatiblity:
 	* Excellion for drill holes
 * [Python](https://www.python.org/downloads/)
 	* Python 2.4 or higher
-	* **Not Python 3, it is incompatible with gerbmerge
+	* **Not Python 3, it is incompatible with gerbmerge**
 
 I used gerbmerge as a way to bring down the cost of ordering pcb for a group of friends while taking ESE 323 - Modern prototying and PCB design class at Stony Brook University. 
 
