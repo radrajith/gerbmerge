@@ -186,9 +186,67 @@ Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb
 This error occurs when the combined files resulted in than 26 distinct drill hole sizes. (26 is number set by config/manufacturer) 
 ![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%2520pics/error1drill.PNG?raw=true)
 
-For a better understanding 
+###Solution
+* This problem can be fixed by rounding up the least used drill sizes to lessen the number of different sized drills. First, open the drill file, in our case ```merge2.txt``` file to find:
+```
+T01C0.012000
+T02C0.023810
+T03C0.025590
+...
+T23C0.078740
+T24C0.086610
+T25C0.089000
+T26C0.125980
+```
+Here we have 26 different sizes here (T01-T26). The number after the ``.`` is the drill/hole size(inches). Example, "T02C0.023810" would be refered to as drill 2 of size .23810 inches. **Note that drill sizes here refer to all types of holes (through-holes, vias, and etc. Not just screw-holes)**.
 
-This problem can be fixed by rounding up the least used drill sizes. First, open the merge2.txt file and look look through to find which drills were least used and try to fix them on the board and rerun the whole process. --frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view)  Sometimes it may be hard to fix where the drill holes are, this can be accomplished by isolating the least used drills in the merge2.txt file and viewing the gerber view.
+Next, look through the drill file ```merge2.txt``` to determine which drills were least used. 
+As an example see:
+```
+T16
+X773340Y516260
+X783340Y516260
+T17
+X989010Y458590
+X989010Y510320
+T18
+X184410Y50670
+X164720Y51220
+X164720Y11220
+X184410Y10670
+X161560Y374840
+X181560Y374840
+X181930Y253050
+X161930Y253050
+X960390Y436190
+X1000390Y436190
+X1000780Y577330
+X960780Y577330
+T19
+X360830Y106220
+X360040Y78270
+X400040Y78270
+X400830Y106220
+X557310Y135730
+X557070Y172150
+X597070Y172150
+X597310Y135730
+X342330Y583940
+X382330Y583940
+X381740Y491460
+X341740Y491460
+X493220Y469130
+X493220Y449450
+X563300Y449450
+X563300Y469130
+```
+Drill sizes T16(2 drills) and T17(2 drills) are not used as much relative to T18(12 drills) or T19(15) drills. 
+
+Locate them through Eagle's board-view to resize to next biggest size listed in drill file /```merge2.txt```. Fix them on the board and rerun the whole process. If you have trouble locating the drill/through holes/vias, make a copy of the drill file isolating the least used drills. Then load that copy onto a gerber viewer to visually see which drill holes/vias needs fixing.
+
+
+
+--frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view).
 
 
 
