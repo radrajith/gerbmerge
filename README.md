@@ -176,7 +176,7 @@ Now there will be file called merge2_corrected.txt file.
 All the files are now ready.
 
 #Uploading to Fusionpcb
-Copy ```.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT``` (8) files in a folder and create a zip file of it. 
+Copy **.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT** (8) files in a folder and create a zip file of it. 
 
 Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).
 
