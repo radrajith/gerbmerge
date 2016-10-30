@@ -6,7 +6,7 @@ Softare Notes:
 	* Gerber_RS274X  
 	* Excellion for drill holes
 * [Python](https://www.python.org/downloads/)
-	* Python 2.4 or higher
+	* [Python 2.4 or higher](https://github.com/radrajith/gerbmerge/blob/master/python-2.7.12.msi)
 	* **Not Python 3, it is incompatible with gerbmerge**
 * [SimpleParse](http://simpleparse.sourceforge.net/)
 	* version 2.1.0 or later	
@@ -174,6 +174,10 @@ Since I am using seeedstudio's fusionpcb manufacturing service, I will now have 
 
 #How to Use Drillfix.py 
 * Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). save it to the python2.7 folder.
+
+You would want to correct the excellion as so: (left: after merge (format not accepted by fusionpcb), right: corrected via drillfix.py (format accepted by fusionpcb)
+![format](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfixcomparison.PNG?raw=true)
+
 * Open command prompt on this folder and type in ``python drillfix.py`` and press enter.
 ![drillfix](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfix.png?raw=true)
 
@@ -195,7 +199,7 @@ Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb
 #Errors
 ##RuntimeError: only 26 different tool sizes supported for fabrication drawing
 This error occurs when the combined files resulted in than 26 distinct drill hole sizes. (26 is number set by config/manufacturer) 
-![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%2520pics/error1drill.PNG?raw=true)
+![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/error1drill.PNG?raw=true)
 
 ###Solution
 * This problem can be fixed by rounding up the least used drill sizes to lessen the number of different sized drills. First, open the drill file, in our case ```merge2.txt``` file to find:
@@ -255,6 +259,16 @@ Drill sizes T16(2 drills) and T17(2 drills) are not used as much relative to T18
 
 Locate them through Eagle's board-view to resize to next biggest size listed in drill file /```merge2.txt```. Fix them on the board and rerun the whole process. If you have trouble locating the drill/through holes/vias, make a copy of the drill file isolating the least used drills. Then load that copy onto a gerber viewer to visually see which drill holes/vias needs fixing.
 
+#### filefind.py
+[fileFind.py](https://github.com/radrajith/gerbmerge/blob/master/fileFindv1.1.py) is a python script that can be used to determine which boards contain the drill size of interest. Useful for projects panelizing more than 3-4 boards, saves time and hassle of having to manually check each excellion drill .txt file of each board.
+
+* Simply place ```fileFind.py``` and drill files (.TXT) in the same folder
+![df](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/filefind1.PNG?raw=true)
+* Run command prompt by going to the address bar and typing ```cmd``` . Next type in ```python filefindv1.1.py```. The prompt will now ask you to enter substring, simply enter the ```C0.XX``` corresponding to your drill size. For example, if you want to determine which boards contain drill size ```T01C0.02400```, type in ```C0.XX```.
+![df2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/filefind.PNG?raw=true)
+
+* The script will now output the corresponding boards that contain the drill size of interest. (In the example shown above, only 3 of the 4 boards contain drill size T01C0.02400.
+
 ##ImportError: No module named simpleparse.parser
 >SimpleParse is a BSD-licensed Python package providing a simple and fast parser generator using a modified version of the mxTextTools >text-tagging engine.
 
@@ -262,8 +276,3 @@ Locate them through Eagle's board-view to resize to next biggest size listed in 
 
 ##SyntaxError: Missing parentheses in call to 'print'
 Are you using python 3 and up? Try again with python 2.7
-
---frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view).
-
-
-
