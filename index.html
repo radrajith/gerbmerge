@@ -31,7 +31,7 @@
           <h1>
 <a id="gerbmerge" class="anchor" href="#gerbmerge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gerbmerge</h1>
 
-<p>A detailed explanation of how I used gerbmerge to combine multiple eagle boards for <a href="https://www.seeedstudio.com/fusion_pcb.html">fusionpcb</a> manufacturing.</p>
+<p>A detailed explanation of how we used gerbmerge to combine multiple eagle boards for <a href="https://www.seeedstudio.com/fusion_pcb.html">fusionpcb</a> manufacturing.</p>
 
 <p>Softare Notes: </p>
 
@@ -49,7 +49,7 @@
 <a href="https://www.python.org/downloads/">Python</a>
 
 <ul>
-<li>Python 2.4 or higher</li>
+<li><a href="https://github.com/radrajith/gerbmerge/blob/master/python-2.7.12.msi">Python 2.4 or higher</a></li>
 <li><strong>Not Python 3, it is incompatible with gerbmerge</strong></li>
 </ul>
 </li>
@@ -78,6 +78,8 @@
 <a id="why-gerbmerge" class="anchor" href="#why-gerbmerge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why Gerbmerge?</h1>
 
 <p>Because eagle cad design software has a limitation of 100x80mm routing area (express) or 160x100mm routing area(edu) , multiple boards cannot be combined together without requiring to upgrade a paid version. To work around this limitation, we can combine the gerber files generated from the eagle instead. By combining the gerber files, we also avoid the problems caused by the panelizing script which redefines all the components to different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).</p>
+
+<hr>
 
 <h1>
 <a id="downloading-python-and-simpleparse" class="anchor" href="#downloading-python-and-simpleparse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading Python And Simpleparse</h1>
@@ -228,6 +230,8 @@ Repeat = 1
 
 <p>Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located).</p>
 
+<hr>
+
 <h1>
 <a id="running-the-gerbmerge-program" class="anchor" href="#running-the-gerbmerge-program" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the Gerbmerge Program.</h1>
 
@@ -248,11 +252,19 @@ Now you should see the all the files with merge2.(extension) generated in the py
 
 <p>Since I am using seeedstudio's fusionpcb manufacturing service, I will now have to modify the drill file to meet their specification(s). The drill file output and the .fab file output do not meet their requirements, for this reason the program <code>drillfix.py</code> program was written/used. This program will be used to automatically correct the drill file to meet the specifications.</p>
 
+<hr>
+
 <h1>
 <a id="how-to-use-drillfixpy" class="anchor" href="#how-to-use-drillfixpy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Use Drillfix.py</h1>
 
 <ul>
-<li>Download the <code>drillfix.py</code> from <a href="https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py">here</a>. save it to the python2.7 folder.</li>
+<li>Download the <code>drillfix.py</code> from <a href="https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py">here</a>. Save it to the python2.7 folder (folder containing the merged files, in our example: merge2.txt).</li>
+</ul>
+
+<p>You would want to correct the excellion as so: (left: after merge (format not accepted by fusionpcb), right: corrected via drillfix.py (format accepted by fusionpcb)
+<img src="https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfixcomparison.PNG?raw=true" alt="format"></p>
+
+<ul>
 <li>Open command prompt on this folder and type in <code>python drillfix.py</code> and press enter.
 <img src="https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfix.png?raw=true" alt="drillfix">
 </li>
@@ -269,12 +281,16 @@ Now you should see the all the files with merge2.(extension) generated in the py
 
 <p>All the files are now ready.</p>
 
+<hr>
+
 <h1>
 <a id="uploading-to-fusionpcb" class="anchor" href="#uploading-to-fusionpcb" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uploading to Fusionpcb</h1>
 
 <p>Copy <strong>.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT</strong> (8) files in a folder and create a zip file of it. </p>
 
 <p>Open your browser, go to <a href="https://www.seeedstudio.com/new-fusion-pcb.html">fusion pcb</a> (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).</p>
+
+<hr>
 
 <h1>
 <a id="errors" class="anchor" href="#errors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Errors</h1>
@@ -283,7 +299,7 @@ Now you should see the all the files with merge2.(extension) generated in the py
 <a id="runtimeerror-only-26-different-tool-sizes-supported-for-fabrication-drawing" class="anchor" href="#runtimeerror-only-26-different-tool-sizes-supported-for-fabrication-drawing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RuntimeError: only 26 different tool sizes supported for fabrication drawing</h2>
 
 <p>This error occurs when the combined files resulted in than 26 distinct drill hole sizes. (26 is number set by config/manufacturer) 
-<img src="https://github.com/radrajith/gerbmerge/blob/master/tutorial%2520pics/error1drill.PNG?raw=true" alt="drillhole error"></p>
+<img src="https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/error1drill.PNG?raw=true" alt="drillhole error"></p>
 
 <h3>
 <a id="solution" class="anchor" href="#solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3>
@@ -349,6 +365,20 @@ X563300Y469130
 
 <p>Locate them through Eagle's board-view to resize to next biggest size listed in drill file /<code>merge2.txt</code>. Fix them on the board and rerun the whole process. If you have trouble locating the drill/through holes/vias, make a copy of the drill file isolating the least used drills. Then load that copy onto a gerber viewer to visually see which drill holes/vias needs fixing.</p>
 
+<h4>
+<a id="filefindpy" class="anchor" href="#filefindpy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>filefind.py</h4>
+
+<p><a href="https://github.com/radrajith/gerbmerge/blob/master/fileFindv1.1.py">fileFind.py</a> is a python script that can be used to determine which boards contain the drill size of interest. Useful for projects panelizing more than 3-4 boards, saves time and hassle of having to manually check each excellion drill .txt file of each board.</p>
+
+<ul>
+<li>Simply place <code>fileFind.py</code> and drill files (.TXT) in the same folder
+<img src="https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/filefind1.PNG?raw=true" alt="df">
+</li>
+<li><p>Run command prompt by going to the address bar and typing <code>cmd</code> . Next type in <code>python filefindv1.1.py</code>. The prompt will now ask you to enter substring, simply enter the <code>C0.XX</code> corresponding to your drill size. For example, if you want to determine which boards contain drill size <code>T01C0.02400</code>, type in <code>C0.XX</code>.
+<img src="https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/filefind.PNG?raw=true" alt="df2"></p></li>
+<li><p>The script will now output the corresponding boards that contain the drill size of interest. (In the example shown above, only 3 of the 4 boards contain drill size T01C0.02400.</p></li>
+</ul>
+
 <h2>
 <a id="importerror-no-module-named-simpleparseparser" class="anchor" href="#importerror-no-module-named-simpleparseparser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ImportError: No module named simpleparse.parser</h2>
 
@@ -363,7 +393,12 @@ X563300Y469130
 
 <p>Are you using python 3 and up? Try again with python 2.7</p>
 
-<p>--frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view).</p>
+<hr>
+
+<h1>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h1>
+
+<p>Thanks a lot Frank yee for fixing my lousy writing, completing and contributing to this tutorial, and also trying the above and adding about the errors you faced. Credit for filefind.py goes to ka wing, your code helped finding the drillbit mismatch very easy. The gang of 10 - Frank, Jeremiah,  Dan, Harvey, Juan, Ricky, Ka wing, Raymond, Thomas and me for trusting me with this software for their PCB order. Prof. Westerfeld for answering questions any time I see him and checking the merged files for error.  </p>
         </section>
 
         <aside id="sidebar">
