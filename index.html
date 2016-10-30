@@ -33,12 +33,34 @@
 
 <p>A detailed explanation of how I used gerbmerge to combine multiple eagle boards for <a href="https://www.seeedstudio.com/fusion_pcb.html">fusionpcb</a> manufacturing.</p>
 
-<p>Softare used: <a href="https://cadsoft.io/">Eagle7.6</a> - compatible CAM file format(s) </p>
+<p>Softare Notes: </p>
+
+<ul>
+<li>
+<a href="https://cadsoft.io/">Eagle7.6</a> - CAM file format(s) 
 
 <ul>
 <li>Gerber_RS274X<br>
 </li>
 <li>Excellion for drill holes</li>
+</ul>
+</li>
+<li>
+<a href="https://www.python.org/downloads/">Python</a>
+
+<ul>
+<li>Python 2.4 or higher</li>
+<li><strong>Not Python 3, it is incompatible with gerbmerge</strong></li>
+</ul>
+</li>
+<li>
+<a href="http://simpleparse.sourceforge.net/">SimpleParse</a>
+
+<ul>
+<li>version 2.1.0 or later<br>
+</li>
+</ul>
+</li>
 </ul>
 
 <p>I used gerbmerge as a way to bring down the cost of ordering pcb for a group of friends while taking ESE 323 - Modern prototying and PCB design class at Stony Brook University. </p>
@@ -58,10 +80,16 @@
 <p>Because eagle cad design software has a limitation of 100x80mm routing area (express) or 160x100mm routing area(edu) , multiple boards cannot be combined together without requiring to upgrade a paid version. To work around this limitation, we can combine the gerber files generated from the eagle instead. By combining the gerber files, we also avoid the problems caused by the panelizing script which redefines all the components to different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).</p>
 
 <h1>
-<a id="downloading-python" class="anchor" href="#downloading-python" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading Python</h1>
+<a id="downloading-python-and-simpleparse" class="anchor" href="#downloading-python-and-simpleparse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading Python And Simpleparse</h1>
 
 <p>Since gerbmerge is written in python, If you don't have python already installed, download it. At the time of this tutorial I was using python version 2.7
 <a href="https://www.python.org/downloads/">python download link</a></p>
+
+<blockquote>
+<p>SimpleParse is a BSD-licensed Python package providing a simple and fast parser generator using a modified version of the mxTextTools &gt;text-tagging engine.</p>
+</blockquote>
+
+<p><a href="http://simpleparse.sourceforge.net/">SimpleParse download link</a></p>
 
 <h1>
 <a id="downloading-and-installing-gerbmerge" class="anchor" href="#downloading-and-installing-gerbmerge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading and Installing Gerbmerge</h1>
@@ -320,6 +348,20 @@ X563300Y469130
 <p>Drill sizes T16(2 drills) and T17(2 drills) are not used as much relative to T18(12 drills) or T19(15) drills. </p>
 
 <p>Locate them through Eagle's board-view to resize to next biggest size listed in drill file /<code>merge2.txt</code>. Fix them on the board and rerun the whole process. If you have trouble locating the drill/through holes/vias, make a copy of the drill file isolating the least used drills. Then load that copy onto a gerber viewer to visually see which drill holes/vias needs fixing.</p>
+
+<h2>
+<a id="importerror-no-module-named-simpleparseparser" class="anchor" href="#importerror-no-module-named-simpleparseparser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ImportError: No module named simpleparse.parser</h2>
+
+<blockquote>
+<p>SimpleParse is a BSD-licensed Python package providing a simple and fast parser generator using a modified version of the mxTextTools &gt;text-tagging engine.</p>
+</blockquote>
+
+<p><a href="http://simpleparse.sourceforge.net/">SimpleParse download link</a></p>
+
+<h2>
+<a id="syntaxerror-missing-parentheses-in-call-to-print" class="anchor" href="#syntaxerror-missing-parentheses-in-call-to-print" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SyntaxError: Missing parentheses in call to 'print'</h2>
+
+<p>Are you using python 3 and up? Try again with python 2.7</p>
 
 <p>--frankie finish the rest, talk about kawing program and how it helped find which board has used weird values and how we used the drill hits(one of the pics i uploaded should have the drill hits view).</p>
         </section>
