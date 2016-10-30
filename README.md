@@ -1,5 +1,5 @@
 # Gerbmerge
-A detailed explanation of how I used gerbmerge to combine multiple eagle boards for [fusionpcb](https://www.seeedstudio.com/fusion_pcb.html) manufacturing.
+A detailed explanation of how we used gerbmerge to combine multiple eagle boards for [fusionpcb](https://www.seeedstudio.com/fusion_pcb.html) manufacturing.
 
 Softare Notes: 
 * [Eagle7.6](https://cadsoft.io/) - CAM file format(s) 
@@ -23,7 +23,7 @@ For this project, the automatic operation was used.
 
 #Why Gerbmerge?
 Because eagle cad design software has a limitation of 100x80mm routing area (express) or 160x100mm routing area(edu) , multiple boards cannot be combined together without requiring to upgrade a paid version. To work around this limitation, we can combine the gerber files generated from the eagle instead. By combining the gerber files, we also avoid the problems caused by the panelizing script which redefines all the components to different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).
-
+***
 # Downloading Python And Simpleparse
 Since gerbmerge is written in python, If you don't have python already installed, download it. At the time of this tutorial I was using python version 2.7
 [python download link](https://www.python.org/downloads/)
@@ -153,7 +153,7 @@ Repeat = 1
 ![foldername](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/foldername.PNG?raw=true)
 
 Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located).
-
+***
 #Running the Gerbmerge Program. 
 Go to the python2.7 folder if you are not already there. Once again open up the command window from within the folder by going to the address bar and typing ```cmd```. 
 ![openning command line](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
@@ -171,7 +171,7 @@ Now you should see the all the files with merge2.(extension) generated in the py
 ![mergefiles](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/mergedFiles.png?raw=true)
 
 Since I am using seeedstudio's fusionpcb manufacturing service, I will now have to modify the drill file to meet their specification(s). The drill file output and the .fab file output do not meet their requirements, for this reason the program ```drillfix.py``` program was written/used. This program will be used to automatically correct the drill file to meet the specifications.
-
+***
 #How to Use Drillfix.py 
 * Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). Save it to the python2.7 folder (folder containing the merged files, in our example: merge2.txt).
 
@@ -189,13 +189,13 @@ Now there will be file called merge2_corrected.txt file.
 * rename the merge2.fab to merge2.GML
 
 All the files are now ready.
-
+***
 #Uploading to Fusionpcb
 Copy **.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT** (8) files in a folder and create a zip file of it. 
 
 Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).
 
-
+***
 #Errors
 ##RuntimeError: only 26 different tool sizes supported for fabrication drawing
 This error occurs when the combined files resulted in than 26 distinct drill hole sizes. (26 is number set by config/manufacturer) 
@@ -276,3 +276,6 @@ Locate them through Eagle's board-view to resize to next biggest size listed in 
 
 ##SyntaxError: Missing parentheses in call to 'print'
 Are you using python 3 and up? Try again with python 2.7
+***
+#Credits
+Thanks a lot Frank yee for fixing my lousy writing, completing and contributing to this tutorial, and also trying the above and adding about the errors you faced. Credit for filefind.py goes to ka wing, your code helped finding the drillbit mismatch very easy. The gang of 10 - Frank, Jeremiah,  Dan, Harvey, Juan, Ricky, Ka wing, Raymond, Thomas and me for trusting me with this software for their PCB order. Prof. Westerfeld for answering questions any time I see him and checking the merged files for error.  
