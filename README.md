@@ -194,7 +194,8 @@ All the files are now ready.
 Copy **.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT** (8) files in a folder and create a zip file of it. 
 
 Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).
-
+Here is a pic of our merged gerber file
+![gerber pic](https://github.com/radrajith/gerbmerge/blob/master/tutorial%2520pics/output%20gerber%20pic.PNG?raw=true)
 ***
 #Errors
 ##RuntimeError: only 26 different tool sizes supported for fabrication drawing
