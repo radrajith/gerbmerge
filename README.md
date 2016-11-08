@@ -395,14 +395,15 @@ Here is a pic of our merged gerber file
 If you have some extra money lying around with no use, you can add a vcut line around each board design to have the PCBs precut. If not send without vcut lines and just use tile saw
 ***
 ###Printed Circuit Board from merged files
-### Printed Circuit Board(merged)
+### Printed Circuit Board (merged)
 Front view
 
-!(front)[https://github.com/radrajith/ESE_323_PCB_Design/blob/master/Pictures/20161107_173616.jpg?raw=true]
+![front](https://github.com/radrajith/ESE_323_PCB_Design/blob/master/Pictures/20161107_173616.jpg?raw=true)
 
 Rear view
  
-!(back)[https://github.com/radrajith/ESE_323_PCB_Design/blob/master/Pictures/20161107_173631.jpg?raw=true]
+![back](https://github.com/radrajith/ESE_323_PCB_Design/blob/master/Pictures/20161107_173631.jpg?raw=true)
+
 
 Cut the boards using tile saw for a cleaner cut. 
 ***
