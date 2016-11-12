@@ -17,7 +17,7 @@ I used gerbmerge as a way to bring down the cost of ordering pcb for a group of 
 *The gerbmerge code is written by ruggedcircuits.com. I am creating this to give a detailed tutorial on how to use it, and not go through the same process of looking all over internet.*
 
 #What is Gerbmerge?
-Gerbmerge is software written in python that will combine multiple gerber files into one super board. Gerbmerge offers both manual and automatic (optimization algorithms) as means of board placement.
+Gerbmerge is software written in python that will combine/merge multiple gerber files into one super board. Gerbmerge offers both manual and automatic (optimization algorithms) as means of board placement.
 
 For this project, the automatic operation was used.
 
