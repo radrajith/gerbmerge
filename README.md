@@ -55,7 +55,7 @@ You can check if gerbmerge was installed correctly by going to "python2.7>Lib>si
 
 ![gerbmerge folder 2](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/germerge_folder_2.png?raw=true)
 
-#Combining Gerber Files 
+# Combining Gerber Files 
 
 If you have not created the gerber files already, [refer here](https://radrajith.github.io/ESE_323_PCB_Design/) for the instructions to obtain the gerber files from eagle. 
 **Confirm that the drills file extensions are saved as .txt not .drd**
@@ -295,5 +295,5 @@ Locate them through Eagle's board-view to resize to next biggest size listed in 
 
 Are you using python 3 and up? Try again with python 2.7
 ***
-#Credits
+# Credits
 Thanks a lot Frank yee for fixing my lousy writing, completing and contributing to this tutorial, and also trying the above and adding about the errors you faced. Credit for filefind.py goes to ka wing, your code helped finding the drillbit mismatch very easy. Thanks to the gang of 10 - Frank, Jeremiah,  Dan, Harvey, Juan, Ricky, Ka wing, Raymond, Thomas and I for trusting me with this software for their PCB order.Lastly, thanks to Prof. Westerfeld for answering questions any time when I see him, and checking the merged files for error.  
