@@ -1,7 +1,7 @@
 # Gerbmerge
 A detailed explanation of how we used gerbmerge to combine multiple eagle boards for [fusionpcb](https://www.seeedstudio.com/fusion_pcb.html) manufacturing.
 
-Softare Notes: 
+Software Notes: 
 * [Eagle7.6](https://cadsoft.io/) - CAM file format(s) 
 	* Gerber_RS274X  
 	* Excellion for drill holes
