@@ -16,12 +16,12 @@ I used gerbmerge as a way to bring down the cost of ordering pcb for a group of 
 
 *The gerbmerge code is written by ruggedcircuits.com. I am creating this to give a detailed tutorial on how to use it, and not go through the same process of looking all over internet.*
 
-#What is Gerbmerge?
+# What is Gerbmerge?
 Gerbmerge is software written in python that will combine multiple gerber files into one super board. Gerbmerge offers both manual and automatic (optimization algorithms) as means of board placement.
 
 For this project, the automatic operation was used.
 
-#Why Gerbmerge?
+# Why Gerbmerge?
 Because eagle cad design software has a limitation of 100x80mm routing area (express) or 160x100mm routing area(edu) , multiple boards cannot be combined together without requiring to upgrade a paid version. To work around this limitation, we can combine the gerber files generated from the eagle instead. By combining the gerber files, we also avoid the problems caused by the panelizing script which redefines all the components to different names. (We combined boards of 10 people and checking each person's board for name conflict is an annoying and time consuming task).
 ***
 # Downloading Python And Simpleparse
@@ -32,7 +32,7 @@ Since gerbmerge is written in python, If you don't have python already installed
 
 [SimpleParse download link](http://simpleparse.sourceforge.net/)
 
-#Downloading and Installing Gerbmerge
+# Downloading and Installing Gerbmerge
 After installing python, go ahead and download gerbmerge file [zip file link](https://github.com/radrajith/gerbmerge/blob/master/gerbmerge-master.zip)
 
 Or if you directly want to get it from the source I forked it from [click here](https://github.com/unwireddevices/gerbmerge).
@@ -60,7 +60,7 @@ You can check if gerbmerge was installed correctly by going to "python2.7>Lib>si
 If you have not created the gerber files already, [refer here](https://radrajith.github.io/ESE_323_PCB_Design/) for the instructions to obtain the gerber files from eagle. 
 **Confirm that the drills file extensions are saved as .txt not .drd**
 
-##Creating Directory for Files to be Combined
+## Creating Directory for Files to be Combined
 To avoid problems with python not being able to find directory, all the files will be placed in the python2.7 directory. Follow the steps below
  
 * Create a new directory called ```project_files```
@@ -74,12 +74,12 @@ To avoid problems with python not being able to find directory, all the files wi
 ![cam files](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/camfiles.png?raw=true)
 *Failure to do so will result in an error.*
 
-##Creating Configuration File
+## Creating Configuration File
 Download the configuration file from [here](https://github.com/radrajith/gerbmerge/blob/master/file.cfg)
 
 Then open the configuration file (file.cfg) in any text editor, I used [notepad++](https://notepad-plus-plus.org/download/v7.1.html). 
 
-###Carefully follow the instructions below and modify the ```**file.cfg**``` . **Note the '#' symbol is used to indicate comments in the code.** 
+### Carefully follow the instructions below and modify the ```**file.cfg**``` . **Note the '#' symbol is used to indicate comments in the code.** 
 *Look for these lines* 
 ```
 # Change projdir to wherever your project files are, for example:
@@ -154,7 +154,7 @@ Repeat = 1
 
 Once the above changes have been made, save the file and place it in the python2.7 folder(same location where 'project_files' folder is located).
 ***
-#Running the Gerbmerge Program. 
+# Running the Gerbmerge Program. 
 Go to the python2.7 folder if you are not already there. Once again open up the command window from within the folder by going to the address bar and typing ```cmd```. 
 ![openning command line](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/opening%20command%20line.png?raw=true)
 
@@ -172,7 +172,7 @@ Now you should see the all the files with merge2.(extension) generated in the py
 
 Since I am using seeedstudio's fusionpcb manufacturing service, I will now have to modify the drill file to meet their specification(s). The drill file output and the .fab file output do not meet their requirements, for this reason the program ```drillfix.py``` program was written/used. This program will be used to automatically correct the drill file to meet the specifications.
 ***
-#How to Use Drillfix.py 
+# How to Use Drillfix.py 
 * Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). Save it to the python2.7 folder (folder containing the merged files, in our example: merge2.txt).
 
 You would want to correct the excellion as so: (left: after merge (format not accepted by fusionpcb), right: corrected via drillfix.py (format accepted by fusionpcb)
@@ -190,7 +190,7 @@ Now there will be file called merge2_corrected.txt file.
 
 All the files are now ready.
 ***
-#Uploading to Fusionpcb
+# Uploading to Fusionpcb
 Copy **.GML, .GBL, .GBS, .GBO, . GTL, .GTO, .GTS, .TXT** (8) files in a folder and create a zip file of it. 
 
 Open your browser, go to [fusion pcb](https://www.seeedstudio.com/new-fusion-pcb.html) (if the link is dead, search for fusionpcb services) and upload this zip file. Click gerber view and now you should be able to see all the layers of the superboard (all gerber files merged).
@@ -200,7 +200,7 @@ Here is a pic of our merged gerber file
 
 If you have some extra money lying around with no use, you can add a vcut line around each board design to have the PCBs precut. If not send without vcut lines and just use tile saw
 ***
-###Printed Circuit Board from merged files
+### Printed Circuit Board from merged files
 ### Printed Circuit Board (merged)
 Front view
 
@@ -213,12 +213,12 @@ Cut the boards using tile saw for a cleaner cut.
 
 If you have some extra money lying around with no use, you can add a vcut line around each board design to have the PCBs precut. If not send without vcut lines and just use tile saw
 ***
-#Errors
-##RuntimeError: only 26 different tool sizes supported for fabrication drawing
+# Errors
+## RuntimeError: only 26 different tool sizes supported for fabrication drawing
 This error occurs when the combined files resulted in than 26 distinct drill hole sizes. (26 is number set by config/manufacturer) 
 ![drillhole error](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/error1drill.PNG?raw=true)
 
-###Solution
+### Solution
 * This problem can be fixed by rounding up the least used drill sizes to lessen the number of different sized drills. First, open the drill file, in our case ```merge2.txt``` file to find:
 ```
 T01C0.012000
@@ -286,12 +286,13 @@ Locate them through Eagle's board-view to resize to next biggest size listed in 
 
 * The script will now output the corresponding boards that contain the drill size of interest. (In the example shown above, only 3 of the 4 boards contain drill size T01C0.02400.
 
-##ImportError: No module named simpleparse.parser
+## ImportError: No module named simpleparse.parser
 >SimpleParse is a BSD-licensed Python package providing a simple and fast parser generator using a modified version of the mxTextTools >text-tagging engine.
 
 [SimpleParse download link](http://simpleparse.sourceforge.net/)
 
-##SyntaxError: Missing parentheses in call to 'print'
+## SyntaxError: Missing parentheses in call to 'print'
+
 Are you using python 3 and up? Try again with python 2.7
 ***
 #Credits
