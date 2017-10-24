@@ -1,0 +1,8 @@
+title: Gerbmerge
+description: "A detailed explanation of how i used gerbmerge to combine multiple eagle board files. "
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
