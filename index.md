@@ -173,7 +173,7 @@ Now you should see the all the files with merge2.(extension) generated in the py
 Since I am using seeedstudio's fusionpcb manufacturing service, I will now have to modify the drill file to meet their specification(s). The drill file output and the .fab file output do not meet their requirements, for this reason the program ```drillfix.py``` program was written/used. This program will be used to automatically correct the drill file to meet the specifications.
 ***
 # How to Use Drillfix.py 
-* Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/raw/master/ese323_drillfix.py). Save it to the python2.7 folder (folder containing the merged files, in our example: merge2.txt).
+* Download the ``drillfix.py`` from [here](https://github.com/radrajith/gerbmerge/blob/master/drillfix.py). Save it to the python2.7 folder (folder containing the merged files, in our example: merge2.txt).
 
 You would want to correct the excellion as so: (left: after merge (format not accepted by fusionpcb), right: corrected via drillfix.py (format accepted by fusionpcb)
 ![format](https://github.com/radrajith/gerbmerge/blob/master/tutorial%20pics/drillfixcomparison.PNG?raw=true)
